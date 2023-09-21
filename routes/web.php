@@ -21,6 +21,10 @@ Route::group(['namespace' => "App\Http\Controllers\Admin", "prefix"=>"admin"], f
     Route::group(['namespace' => "Main"], function() {
         Route::get('/', 'IndexController');
     });
+
+    Route::group(['namespace' => "Category", "prefix"=>"categories"], function() {
+        Route::get('/', 'IndexController');
+    });
 });
 
 
