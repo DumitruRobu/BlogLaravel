@@ -42,10 +42,10 @@
     </nav>
     <!-- /.navbar -->
 
-   @include("admin.includes.sidebar")
+   @include("admin.includes.sidebar")  <!--Facem trimitere la portiunea de cod din admin.includes.sidebar -->
 
     <!-- Content Wrapper. Contains page content -->
-   @yield("content")
+   @yield("content")   <!--Aici intra codul din admin.main.index cind e pe glavnaya si admin.categories.index -->
 
     <footer class="main-footer">
         <strong>Blog </strong>

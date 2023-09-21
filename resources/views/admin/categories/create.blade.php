@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">Adding a category</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -25,13 +25,19 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-1">
-                        <a a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary">Add</a>
-                    </div>
-                    <div class="col-12">
-                        Category
-                    </div>
 
+                    <div class="col-12">
+
+                        <form action="#" class="w-25">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" placeholder="Name of the category">
+                            </div>
+
+                            <input type="submit" class="btn btn-primary" value="Add">
+
+                        </form>
+                    </div>
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->
