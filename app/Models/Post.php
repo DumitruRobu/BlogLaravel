@@ -9,8 +9,8 @@ class Post extends Model
 {
     use HasFactory;
     protected $table = "posts";
-    public $timestamps = "false";
-    protected $guarded = "false";
+    public $timestamps = false;
+    protected $guarded = false;
 
     public function category(){
         $this->belongsTo(Category::class, "category_id", "id");

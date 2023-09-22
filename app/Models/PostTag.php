@@ -9,6 +9,6 @@ class PostTag extends Model
 {
     use HasFactory;
     protected $table = "post_tags";
-    public $timestamps = "false";
-    protected $guarded = "false";
+    public $timestamps = false;
+    protected $guarded = false;
 }

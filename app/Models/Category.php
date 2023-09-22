@@ -9,13 +9,10 @@ class Category extends Model
 {
     use HasFactory;
     protected $table = "categories";
-    public $timestamps = "false";
-    protected $guarded = "false";
+    public $timestamps = false;
+    protected $guarded = false;
 
    public function post(){
        $this->hasMany(Post::class, "category_id", "id");
    }
-
-
-
 }

@@ -25,14 +25,43 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-1 mb-3" >
                         <a a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary">Add</a>
                     </div>
-                    <div class="col-12">
-                        Category
-                    </div>
-
                     <!-- ./col -->
+                </div>
+
+                <div class="col-4">
+                    <div class="card">
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+
+                                @foreach($categories as $c)
+                                <tr>
+                                        <td>{{$contor}}</td>
+                                        <td>{{$c->title}}</td>
+
+                                </tr>
+
+                                <?php $contor++; ?> {{-- aici $contor e o variabila transmisa din controller si tot e corect--}}
+                                @endforeach
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
                 </div>
                 <!-- /.row -->
 

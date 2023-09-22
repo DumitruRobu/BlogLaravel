@@ -28,11 +28,14 @@
 
                     <div class="col-12">
 
-                        <form action="#" class="w-25">
+                        <form action="{{route('admin.category.store')}}" class="w-25" method="POST">
+                            @csrf
                             <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" class="form-control" placeholder="Name of the category">
+                                <input type="text" name="title" class="form-control" placeholder="Name of the category">
                             </div>
+                            @error('title')
+                                <p class="text-danger">{{$message}}</p>
+                            @enderror
 
                             <input type="submit" class="btn btn-primary" value="Add">
 
