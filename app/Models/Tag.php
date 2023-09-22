@@ -11,4 +11,8 @@ class Tag extends Model
     protected $table = "tags";
     public $timestamps = "false";
     protected $guarded = "false";
+
+    public function post(){
+        $this->belongsToMany(Post::class, "posttag", "tag_id", "post_id");git lo
+    }
 }

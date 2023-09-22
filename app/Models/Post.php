@@ -11,4 +11,23 @@ class Post extends Model
     protected $table = "posts";
     public $timestamps = "false";
     protected $guarded = "false";
+
+    public function category(){
+        $this->belongsTo(Category::class, "category_id", "id");
+    }
+
+    public function tag(){
+        $this->belongsToMany(Tag::class, "posttag", "post_id", "tag_id");
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
