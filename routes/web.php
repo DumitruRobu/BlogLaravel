@@ -27,6 +27,7 @@ Route::group(['namespace' => "App\Http\Controllers\Admin", "prefix"=>"admin"], f
         Route::get('/create', 'CreateController')->name("admin.category.create");
         Route::post('/', 'StoreController')->name("admin.category.store");
         Route::get('/create/{id}', 'ViewCategoryController')->name("admin.category.view");
+        Route::get('/edit/{id}', 'EditCategoryController')->name("admin.category.edit");
     });
 });
 

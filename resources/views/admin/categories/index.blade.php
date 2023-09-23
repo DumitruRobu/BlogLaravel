@@ -40,7 +40,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Action</th>
+                                    <th>View</th>
+                                    <th>Edit</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -52,7 +53,19 @@
                                         <td>{{$contor}}</td>
                                         <td>{{$c->title}}</td>
                                         <td>
-                                            <a href="{{route('admin.category.view', ["id"=>$c->id])}}"> <i class="far fa-eye"></i> </a>
+                                            <a href="{{route('admin.category.view', ["id"=>$c->id])}}">
+                                                <div>
+                                                 <i class="far fa-eye"></i>
+                                                </div>
+                                            </a>
+                                        </td>
+
+                                        <td>
+                                            <a href="{{route('admin.category.edit', ["id"=>$c->id])}}">
+                                                <div>
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </div>
+                                            </a>
                                         </td>
 
                                 </tr>
