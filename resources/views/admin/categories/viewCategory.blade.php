@@ -39,28 +39,16 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Action</th>
+                                    <th>Details</th>
                                 </tr>
                                 </thead>
+
                                 <tbody>
-
-
-
-                                @foreach($categories as $c)
                                 <tr>
-                                        <td>{{$contor}}</td>
-                                        <td>{{$c->title}}</td>
-                                        <td>
-                                            <a href="{{route('admin.category.view', ["id"=>$c->id])}}"> <i class="far fa-eye"></i> </a>
-                                        </td>
-
+                                        <td>{{$element->id}}</td>
+                                        <td>{{$element->title}}</td>
                                 </tr>
-
-                                <?php $contor++; ?> {{-- aici $contor e o variabila transmisa din controller si tot e corect--}}
-                                @endforeach
                                 </tbody>
-
                             </table>
                         </div>
                         <!-- /.card-body -->
