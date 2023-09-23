@@ -30,6 +30,13 @@
                         <a href="{{route('admin.category.edit', ["id"=>$element->id])}}">
                             <i class="fas fa-pencil-alt ml-3 text-success"></i>
                         </a>
+                        <form action="{{route('admin.category.delete', ["id"=>$element->id])}}" method="POST">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="border-0 bg-transparent">
+                                <i class="fas fa-trash text-danger"></i>
+                            </button>
+                        </form>
                     </div>
                     <!-- ./col -->
                 </div>

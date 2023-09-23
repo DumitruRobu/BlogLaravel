@@ -42,6 +42,7 @@
                                     <th>Name</th>
                                     <th>View</th>
                                     <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -68,12 +69,18 @@
                                             </a>
                                         </td>
 
+                                    <td>
+                                        <form action="{{route('admin.category.delete', ["id"=>$c->id])}}" method="POST">
+                                            @csrf
+                                            @method("DELETE")
+                                                <button type="submit" class="border-0 bg-transparent">
+                                                        <i class="fas fa-trash text-danger"></i>
+                                                </button>
+                                        </form>
+                                    </td>
+
                                 </tr>
-
-                                <?php $contor++; ?> {{-- aici $contor e o variabila transmisa din controller si tot e corect--}}
-                                @endforeach
-                                </tbody>
-
+                            @endforeach
                             </table>
                         </div>
                         <!-- /.card-body -->
