@@ -63,7 +63,7 @@
                                         <td>
                                             <a href="{{route('admin.category.edit', ["id"=>$c->id])}}">
                                                 <div>
-                                                    <i class="fas fa-pencil-alt"></i>
+                                                    <i class="fas fa-pencil-alt text-success"></i>
                                                 </div>
                                             </a>
                                         </td>

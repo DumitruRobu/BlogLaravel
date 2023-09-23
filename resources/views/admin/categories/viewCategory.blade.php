@@ -25,8 +25,11 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-1 mb-3" >
-                        <a a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary">Add</a>
+                    <div class="col-1 mb-3 d-flex align-items-center" >
+                        <a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary ml-1">Add</a>
+                        <a href="{{route('admin.category.edit', ["id"=>$element->id])}}">
+                            <i class="fas fa-pencil-alt ml-3 text-success"></i>
+                        </a>
                     </div>
                     <!-- ./col -->
                 </div>

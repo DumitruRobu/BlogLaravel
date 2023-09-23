@@ -28,17 +28,17 @@
 
                     <div class="col-12">
 
-                        <form action="#" class="w-25" method="POST">
+{{--                        //metoda interesanta de update nefolosind input type=hidden!--}}
+                        <form action="{{route('admin.category.update', ['category'=>$element->id])}}" class="w-25" method="POST">
                             @csrf
+                            @method("PATCH")
                             <div class="form-group">
                                 <input value="{{$element->title}}" type="text" name="title" class="form-control" placeholder="Name of the category">
                             </div>
                             @error('title')
                                 <p class="text-danger">{{$message}}</p>
                             @enderror
-
                             <input type="submit" class="btn btn-primary" value="Edit">
-
                         </form>
                     </div>
                     <!-- ./col -->

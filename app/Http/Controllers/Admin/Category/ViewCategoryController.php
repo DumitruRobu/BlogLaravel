@@ -12,6 +12,7 @@ class ViewCategoryController
     public function __invoke($id)
     {
         $element = Category::findOrFail($id);
+
         return view('admin.categories.viewCategory', compact("element"));
     }
 }
