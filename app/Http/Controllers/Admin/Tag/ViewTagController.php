@@ -4,7 +4,6 @@
 namespace App\Http\Controllers\Admin\Tag;
 
 
-use App\Http\Requests\Admin\Category\StoreRequest;
 use App\Models\Tag;
 
 class ViewTagController
