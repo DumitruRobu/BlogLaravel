@@ -28,16 +28,23 @@
 
                     <div class="col-12">
 
-                        <form action="{{route('admin.post.store')}}" class="w-25" method="POST">
+                        <form action="{{route('admin.post.store')}}"  method="POST">
                             @csrf
-                            <div class="form-group">
-                                <input type="text" name="title" class="form-control" placeholder="Name of the post">
+                            <div class="form-group w-25">
+                                <input value="{{old("title")}}" type="text" name="title" class="form-control" placeholder="Name of the post">
                             </div>
                             @error('title')
-                                <p class="text-danger">{{$message}}</p>
+                                <p class="text-danger">{{"Completeaza cimpul cu ceva text!"}}</p>
                             @enderror
 
-                            <input type="submit" class="btn btn-primary" value="Add">
+                            <div class="form-group">
+                                    <textarea id="summernote" name="content">{{old("content")}}</textarea>
+                            </div>
+                            @error('content')
+                            <p class="text-danger">{{"Completeaza cimpul cu ceva text!"}}</p>
+                            @enderror
+
+                            <input type="submit" class="btn btn-primary" value="Add post">
 
                         </form>
                     </div>
