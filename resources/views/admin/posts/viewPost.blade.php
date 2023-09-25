@@ -1,3 +1,10 @@
+<style>
+    .content-cell {
+        max-width: 400px; /* Adjust the maximum width as needed */
+        white-space: normal;
+    }
+</style>
+
 @extends("admin.layouts.main")
 
 @section("content")
@@ -41,15 +48,16 @@
                     <!-- ./col -->
                 </div>
 
-                <div class="col-4">
-                    <div class="card">
+                <div class="col-14">
+                    <div class="card ">
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
+                        <div class="card-body table-responsive p-0 ">
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Details</th>
+                                    <th>Content</th>
                                 </tr>
                                 </thead>
 
@@ -57,6 +65,7 @@
                                 <tr>
                                         <td>{{$element->id}}</td>
                                         <td>{{$element->title}}</td>
+                                        <td class="content-cell"> {!! $element->content !!}</td>
                                 </tr>
                                 </tbody>
                             </table>

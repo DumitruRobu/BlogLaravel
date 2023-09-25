@@ -39,7 +39,7 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
+                                    <th>Title</th>
                                     <th>View</th>
                                     <th>Edit</th>
                                     <th>Delete</th>

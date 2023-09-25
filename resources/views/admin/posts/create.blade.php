@@ -1,3 +1,9 @@
+<style>
+    .adaugamPreview{
+        width: 25%;
+    }
+</style>
+
 @extends("admin.layouts.main")
 
 @section("content")
@@ -28,7 +34,7 @@
 
                     <div class="col-12">
 
-                        <form action="{{route('admin.post.store')}}"  method="POST">
+                        <form action="{{route('admin.post.store')}}"  method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group w-25">
                                 <input value="{{old("title")}}" type="text" name="title" class="form-control" placeholder="Name of the post">
@@ -43,6 +49,33 @@
                             @error('content')
                             <p class="text-danger">{{"Completeaza cimpul cu ceva text!"}}</p>
                             @enderror
+
+                            <div class="form-group adaugamPreview">
+                                <label for="exampleInputFile">Add a preview</label>
+                                <div class="input-group ">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="preview_image">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group adaugamPreview">
+                                <label for="exampleInputFile">Add the main image</label>
+                                <div class="input-group ">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="main_image">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
+                            </div>
 
                             <input type="submit" class="btn btn-primary" value="Add post">
 

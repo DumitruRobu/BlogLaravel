@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Adding a post</h1>
+                        <h1 class="m-0">Editing a post</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -29,15 +29,23 @@
                     <div class="col-12">
 
 {{--                        //metoda interesanta de update nefolosind input type=hidden!--}}
-                        <form action="{{route('admin.post.update', ['post'=>$element->id])}}" class="w-25" method="POST">
+                        <form action="{{route('admin.post.update', ['post'=>$element->id])}}"  method="POST">
                             @csrf
                             @method("PATCH")
-                            <div class="form-group">
+                            <div class="form-group w-25">
                                 <input value="{{$element->title}}" type="text" name="title" class="form-control" placeholder="Name of the post">
                             </div>
                             @error('title')
                                 <p class="text-danger">{{$message}}</p>
                             @enderror
+
+                            <div class="form-group ">
+                                <textarea id="summernote" name="content">{{old("content") ? old("content") : $element->content}}</textarea>
+                            </div>
+                            @error('content')
+                            <p class="text-danger">{{"Completeaza cimpul cu ceva text!"}}</p>
+                            @enderror
+
                             <input type="submit" class="btn btn-primary" value="Edit">
                         </form>
                     </div>

@@ -12,6 +12,6 @@ class EditPostController
     public function __invoke($id)
     {
         $element = Post::findOrFail($id);
-        return view('admin.posts.editPost', compact("element"));
+        return view('admin.posts.edit', compact("element"));
     }
 }

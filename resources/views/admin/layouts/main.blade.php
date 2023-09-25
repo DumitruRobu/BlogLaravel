@@ -87,6 +87,9 @@
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
 
+<!-- bs-custom-file-input -->
+<script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+
 <script>
     $(document).ready(function() {
         $('#summernote').summernote({
@@ -98,6 +101,12 @@
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
         });
+    });
+</script>
+
+<script>
+    $(function () {
+        bsCustomFileInput.init();
     });
 </script>
 </body>
