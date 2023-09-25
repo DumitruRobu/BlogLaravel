@@ -51,7 +51,7 @@
 
                                 @foreach($posts as $c)
                                 <tr>
-                                        <td>{{$contor}}</td>
+                                        <td>{{$contor++}}</td>
                                         <td>{{$c->title}}</td>
                                         <td>
                                             <a href="{{route('admin.post.view', ["id"=>$c->id])}}">

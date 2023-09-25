@@ -49,7 +49,7 @@
 
                                 @foreach($tags as $t)
                                 <tr>
-                                        <td>{{$contor}}</td>
+                                        <td>{{$contor++}}</td>
                                         <td>{{$t->title}}</td>
                                         <td>
                                             <a href="{{route('admin.tag.view', ["id"=>$t->id])}}">

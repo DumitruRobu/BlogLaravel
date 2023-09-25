@@ -51,7 +51,7 @@
 
                                 @foreach($categories as $c)
                                 <tr>
-                                        <td>{{$contor}}</td>
+                                        <td>{{$contor++}}</td>
                                         <td>{{$c->title}}</td>
                                         <td>
                                             <a href="{{route('admin.category.view', ["id"=>$c->id])}}">
@@ -80,6 +80,7 @@
                                     </td>
 
                                 </tr>
+
                             @endforeach
                             </table>
                         </div>

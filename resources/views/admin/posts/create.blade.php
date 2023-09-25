@@ -1,6 +1,13 @@
 <style>
-    .adaugamPreview{
+    .adaugamPreview, .selectamCategoria{
         width: 25%;
+    }
+    #fileUpld{
+        display:none;
+    }
+    #chs{
+        border: 1px solid black;
+        padding: 3px;
     }
 </style>
 
@@ -62,7 +69,9 @@
                                     </div>
                                 </div>
                             </div>
-
+                            @error('preview_image')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
 
                             <div class="form-group adaugamPreview">
                                 <label for="exampleInputFile">Add the main image</label>
@@ -75,6 +84,18 @@
                                         <span class="input-group-text">Upload</span>
                                     </div>
                                 </div>
+                            </div>
+                            @error('main_image')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
+
+                            <div class="form-group selectamCategoria">
+                                <label>Select Category</label>
+                                <select class="form-control" name="category_id">
+                                    @foreach($categories as $c)
+                                        <option value="{{$c->id}}" {{old('category_id') == $c->id ? "selected" : ""}}>{{$c->title}}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <input type="submit" class="btn btn-primary" value="Add post">
