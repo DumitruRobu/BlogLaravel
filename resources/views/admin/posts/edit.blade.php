@@ -46,6 +46,56 @@
                             <p class="text-danger">{{"Completeaza cimpul cu ceva text!"}}</p>
                             @enderror
 
+                            <div class="form-group adaugamPreview">
+                                <label for="exampleInputFile">Edit the preview image</label>
+                                <div class="input-group ">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="preview_image">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('preview_image')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
+
+                            <div class="form-group adaugamPreview">
+                                <label for="exampleInputFile">Edit the main image</label>
+                                <div class="input-group ">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="main_image">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('main_image')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
+
+                            <div class="form-group selectamCategoria">
+                                <label>Select Category</label>
+                                <select class="form-control" name="category_id">
+                                    @foreach($categories as $c)
+                                        <option value="{{$c->id}}" {{old('category_id') == $c->id ? "selected" : ""}}>{{$c->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Select a tag" style="width: 100%;">
+                                    @foreach($tags as $t)
+                                        <option {{is_array(old('tag_ids')) && in_array($t->id, old('tag_ids')) ? 'selected':''}} value="{{$t->id}}">{{$t->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <input type="submit" class="btn btn-primary" value="Edit">
                         </form>
                     </div>

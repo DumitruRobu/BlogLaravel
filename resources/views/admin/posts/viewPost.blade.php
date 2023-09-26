@@ -57,6 +57,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Details</th>
+                                    <th>Category</th>
+                                    <th>Tags</th>
                                     <th>Content</th>
                                 </tr>
                                 </thead>
@@ -65,6 +67,10 @@
                                 <tr>
                                         <td>{{$element->id}}</td>
                                         <td>{{$element->title}}</td>
+                                        <td>{{$element->category->title}}</td>
+                                        <td>
+                                            {{ implode(', ', $tagurile->toArray()) }}
+                                        </td>
                                         <td class="content-cell"> {!! $element->content !!}</td>
                                 </tr>
                                 </tbody>
