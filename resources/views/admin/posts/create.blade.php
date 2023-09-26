@@ -98,6 +98,15 @@
                                 </select>
                             </div>
 
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Select a tag" style="width: 100%;">
+                                   @foreach($tags as $t)
+          <option {{is_array(old('tag_ids')) && in_array($t->id, old('tag_ids')) ? 'selected':''}} value="{{$t->id}}">{{$t->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <input type="submit" class="btn btn-primary" value="Add post">
 
                         </form>

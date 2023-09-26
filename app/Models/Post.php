@@ -13,11 +13,11 @@ class Post extends Model
     protected $guarded = false;
 
     public function category(){
-        $this->belongsTo(Category::class, "category_id", "id");
+        return $this->belongsTo(Category::class, "category_id", "id");
     }
 
-    public function tag(){
-        $this->belongsToMany(Tag::class, "posttag", "post_id", "tag_id");
+    public function tags(){
+        return $this->belongsToMany(Tag::class, "post_tags", "post_id", "tag_id");
     }
 }
 
