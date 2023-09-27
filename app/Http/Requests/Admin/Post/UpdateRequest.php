@@ -23,7 +23,13 @@ class UpdateRequest extends FormRequest
     {
         return [
             "title"=>"required|string",
-            "content"=>"required|string"
+            "content"=>"required|string",
+            "preview_image"=>"nullable",
+            "main_image"=>"nullable",
+            "category_id"=>"required|integer|exists:categories,id",
+            "tag_ids"=>"nullable|array",
+            "tag_ids.*"=>"nullable|integer|exists:tags,id", //Controlam ca valoarea fiecare element sa fie in prezenta in tabela tags, coloana id.
+
         ];
     }
 }

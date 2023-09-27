@@ -1,3 +1,10 @@
+<style>
+    .imaginePreview{
+        width: 250px;
+        height: 200px;
+        margin-bottom: 10px;
+    }
+</style>
 @extends("admin.layouts.main")
 
 @section("content")
@@ -29,7 +36,7 @@
                     <div class="col-12">
 
 {{--                        //metoda interesanta de update nefolosind input type=hidden!--}}
-                        <form action="{{route('admin.post.update', ['post'=>$element->id])}}"  method="POST">
+                        <form action="{{route('admin.post.update', ['post'=>$element->id])}}"  method="POST" enctype="multipart/form-data">
                             @csrf
                             @method("PATCH")
                             <div class="form-group w-25">
@@ -48,6 +55,9 @@
 
                             <div class="form-group adaugamPreview">
                                 <label for="exampleInputFile">Edit the preview image</label>
+                                <div>
+                                    <img class="imaginePreview" src="{{url('storage/' . $element->preview_image)}}" alt="preview_image">
+                                </div>
                                 <div class="input-group ">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="preview_image">
@@ -64,6 +74,9 @@
 
                             <div class="form-group adaugamPreview">
                                 <label for="exampleInputFile">Edit the main image</label>
+                                <div class="imaginePreview">
+                                    <img class="imaginePreview" src="{{asset("storage/" . $element->main_image)}}" alt="main_image">
+                                </div>
                                 <div class="input-group ">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="main_image">
@@ -82,7 +95,7 @@
                                 <label>Select Category</label>
                                 <select class="form-control" name="category_id">
                                     @foreach($categories as $c)
-                                        <option value="{{$c->id}}" {{old('category_id') == $c->id ? "selected" : ""}}>{{$c->title}}</option>
+                                        <option value="{{$c->id}}" {{$element->category_id == $c->id ? "selected" : ""}}>{{$c->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -91,7 +104,7 @@
                                 <label>Tags</label>
                                 <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Select a tag" style="width: 100%;">
                                     @foreach($tags as $t)
-                                        <option {{is_array(old('tag_ids')) && in_array($t->id, old('tag_ids')) ? 'selected':''}} value="{{$t->id}}">{{$t->title}}</option>
+                                        <option {{ is_array( $element->tags->pluck("id")->toArray() ) && in_array($t->id, $element->tags->pluck("id")->toArray()) ? 'selected':''}} value="{{$t->id}}">{{$t->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
