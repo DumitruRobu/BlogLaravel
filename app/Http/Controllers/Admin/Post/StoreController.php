@@ -9,32 +9,13 @@ use App\Models\Post;
 use App\Models\PostTag;
 use Illuminate\Support\Facades\Storage;
 
-class StoreController
+class StoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
-        try{
-            $data = $request->validated();
-            $tags = $data['tag_ids'];
-            unset($data['tag_ids']);
+        $data = $request->validated();
+        $this->service->store($data);
 
-            $data['preview_image'] = Storage::disk('public')->put("/images", $data['preview_image']);
-            $data['main_image'] = Storage::disk('public')->put("/images", $data['main_image']);
-
-            $newPost = Post::firstOrCreate($data);
-
-            //mai profesionist!
-            $newPost->tags()->attach($tags);
-            //mai putin profesionist!
-//        foreach($tags as $t){
-//            PostTag::create([
-//                'post_id'=>$newPost['id'],
-//                'tag_id'=>$t
-//            ]);
-//        }
-        } catch(\Exception $exception){
-            abort(404);
-        }
-            return redirect()->route("admin.post.index");
+        return redirect()->route("admin.post.index");
     }
 }

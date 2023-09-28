@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Admin\Post;
 
 use App\Models\Post;
 
-class DeletePostController
+class DeletePostController extends BaseController
 {
     public function __invoke($id)
     {

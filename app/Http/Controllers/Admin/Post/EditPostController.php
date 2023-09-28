@@ -9,7 +9,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 
-class EditPostController
+class EditPostController extends BaseController
 {
     public function __invoke($id)
     {

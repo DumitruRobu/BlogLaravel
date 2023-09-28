@@ -9,7 +9,7 @@ use App\Models\Post;
 use App\Models\PostTag;
 use App\Models\Tag;
 
-class ViewPostController
+class ViewPostController extends BaseController
 {
     public function __invoke($id)
     {
