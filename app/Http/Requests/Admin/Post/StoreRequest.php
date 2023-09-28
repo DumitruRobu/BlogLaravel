@@ -31,4 +31,27 @@ class StoreRequest extends FormRequest
             "tag_ids.*"=>"nullable|integer|exists:tags,id", //Controlam ca valoarea fiecare element sa fie in prezenta in tabela tags, coloana id.
         ];
     }
+
+    public function messages()
+    {
+        return [
+          'title.required'=>"Denumirea trebuie sa fie populata",
+          'title.string'=>"Denumirea/Titlul trebuie sa fie de tip text",
+
+          'content.required'=>"Continutul trebuie sa fie populat",
+          'content.string'=>"Continutul trebuie sa fie de tip text",
+
+          'preview_image.required'=>"Imaginea de preview trebuie sa fie populata",
+          'preview_image.file'=>"Imaginea de preview trebuie sa fie de tip file",
+
+          'main_image.required'=>"Imaginea principala trebuie sa fie populata",
+          'main_image.file'=>"Imaginea principala trebuie sa fie de tip file",
+
+          'category_id.required'=>"Categoria trebuie sa fie populata",
+          'category_id.integer'=>"Categoria trebuie sa fie de tip integer",
+          'category_id.exists'=>"Categoria trebuie sa fie existenta in baza de date!",
+
+          'tag_ids.array' =>"E necesar de trimis o lista de date!"
+        ];
+    }
 }

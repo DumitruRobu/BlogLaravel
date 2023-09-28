@@ -69,7 +69,14 @@
                                         <td>{{$element->title}}</td>
                                         <td>{{$element->category->title}}</td>
                                         <td>
-                                            {{ implode(', ', $tagurile->toArray()) }}
+                                            @foreach($element->tags as $tag)
+                                                {{$tag->title}}
+                                                @if (!$loop->last)
+                                                    , <!-- Add a comma if it's not the last tag -->
+                                                @endif
+                                            @endforeach
+{{--                                        //alternativ:--}}
+{{--                                        {{ implode(', ', $element->tags->pluck('title')->toArray()) }}--}}
                                         </td>
                                         <td class="content-cell"> {!! $element->content !!}</td>
                                 </tr>
@@ -88,3 +95,5 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
+
+

@@ -47,14 +47,14 @@
                                 <input value="{{old("title")}}" type="text" name="title" class="form-control" placeholder="Name of the post">
                             </div>
                             @error('title')
-                                <p class="text-danger">{{"Completeaza cimpul cu ceva text!"}}</p>
+                                <p class="text-danger">{{$message}}</p>
                             @enderror
 
                             <div class="form-group">
                                     <textarea id="summernote" name="content">{{old("content")}}</textarea>
                             </div>
                             @error('content')
-                            <p class="text-danger">{{"Completeaza cimpul cu ceva text!"}}</p>
+                            <p class="text-danger">{{$message}}</p>
                             @enderror
 
                             <div class="form-group adaugamPreview">

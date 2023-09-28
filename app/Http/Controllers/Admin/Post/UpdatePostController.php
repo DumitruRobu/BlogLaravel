@@ -17,11 +17,10 @@ class UpdatePostController extends BaseController
         $data = $request->validated();
         $post = $this->service->update($data,$post);
 
-
         //retrimitem pe pagina postului deja editat
         $element = Post::findOrFail($post->id);
-        $idurileTagurilor = PostTag::where('post_id',$post['id'])->pluck("tag_id");
-        $tagurile = Tag::whereIn("id", $idurileTagurilor)->pluck("title");
-        return view('admin.posts.viewPost', compact('element', 'tagurile'));
+      //  $idurileTagurilor = PostTag::where('post_id',$post['id'])->pluck("tag_id");
+      //  $tagurile = Tag::whereIn("id", $idurileTagurilor)->pluck("title");
+        return view('admin.posts.viewPost', compact('element'));
     }
 }

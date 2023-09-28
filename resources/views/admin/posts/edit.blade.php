@@ -47,10 +47,11 @@
                             @enderror
 
                             <div class="form-group ">
-                                <textarea id="summernote" name="content">{{old("content") ? old("content") : $element->content}}</textarea>
+{{--                            <textarea id="summernote" name="content">{{old("content") ? old("content") : $element->content}}</textarea>--}}
+                                <textarea id="summernote" name="content">{{ old("content", $element->content) }}</textarea>
                             </div>
                             @error('content')
-                            <p class="text-danger">{{"Completeaza cimpul cu ceva text!"}}</p>
+                                <p class="text-danger">{{$message}}</p>
                             @enderror
 
                             <div class="form-group adaugamPreview">
