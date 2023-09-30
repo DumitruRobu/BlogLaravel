@@ -23,7 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             "title"=>"required|string",
-            "content"=>"required|string",
+            "content"=>"content_required|string", //unde content_required e un parametru personalizat de mine, vezi AppServiceProvider functia boot
             "preview_image"=>"nullable",
             "main_image"=>"nullable",
             "category_id"=>"required|integer|exists:categories,id",
@@ -39,7 +39,7 @@ class UpdateRequest extends FormRequest
             'title.required'=>"Denumirea trebuie sa fie populata",
             'title.string'=>"Denumirea/Titlul trebuie sa fie de tip text",
 
-            'content.required'=>"Continutul trebuie sa fie populat",
+            'content.content_required'=>"Continutul trebuie sa fie populat", //customizam content_requiredul
             'content.string'=>"Continutul trebuie sa fie de tip text",
 
             'preview_image.required'=>"Imaginea de preview trebuie sa fie populata",
