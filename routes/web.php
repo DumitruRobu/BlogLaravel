@@ -58,7 +58,7 @@ Route::group(['namespace' => "App\Http\Controllers\Admin", "prefix"=>"admin"], f
         Route::post('/', 'StoreController')->name("admin.user.store");
         Route::get('/{id}', 'ViewUserController')->name("admin.user.view");
         Route::get('/edit/{id}', 'EditUserController')->name("admin.user.edit");
-        Route::patch('/{category}', 'UpdateUserController')->name("admin.user.update");
+        Route::patch('/{user}', 'UpdateUserController')->name("admin.user.update");
         Route::delete('/{id}', 'DeleteUserController')->name("admin.user.delete");
     });
 });

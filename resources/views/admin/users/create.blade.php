@@ -37,6 +37,20 @@
                                 <p class="text-danger">{{$message}}</p>
                             @enderror
 
+                            <div class="form-group">
+                                <input type="text" name="email" class="form-control" placeholder="Email of the user">
+                            </div>
+                            @error('email')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
+
+                            <div class="form-group">
+                                <input type="text" name="password" class="form-control" placeholder="Password of the user">
+                            </div>
+                            @error('password')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
+
                             <input type="submit" class="btn btn-primary" value="Add">
 
                         </form>

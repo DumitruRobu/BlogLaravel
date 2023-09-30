@@ -16,6 +16,6 @@ class UpdateUserController
 
         $element = User::findOrFail($user->id);
 
-        return view('admin.users.viewCategory', compact('element'));
+        return view('admin.users.viewUser', compact('element'));
     }
 }

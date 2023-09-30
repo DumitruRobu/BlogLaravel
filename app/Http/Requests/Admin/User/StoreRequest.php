@@ -22,7 +22,22 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name"=>"required|string"
+            "name"=>"required|string",
+            "email"=>"required|string|email|unique:users",
+            "password"=>"required|string"
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            "name.required"=> "Populeaza cimpul nume",
+            "name.string"=> "Cimpul nume trebuie sa fie in format text",
+
+            "email.required"=> "Populeaza cimpul email",
+            "email.string"=> "Cimpul email trebuie sa fie in format text",
+            "email.email"=> "Cimpul email trebuie sa fie in format mail@mail.com",
+            "email.unique"=> "Acest email deja este in folosinta",
         ];
     }
 }

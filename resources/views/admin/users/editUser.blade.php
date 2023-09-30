@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Adding a user</h1>
+                        <h1 class="m-0">Editing a user</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,6 +37,13 @@
                             </div>
                             @error('name')
                                 <p class="text-danger">{{$message}}</p>
+                            @enderror
+
+                            <div class="form-group">
+                                <input value="{{$element->email}}" type="text" name="email" class="form-control" placeholder="Email of the user">
+                            </div>
+                            @error('email')
+                            <p class="text-danger">{{$message}}</p>
                             @enderror
                             <input type="submit" class="btn btn-primary" value="Edit">
                         </form>
