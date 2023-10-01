@@ -12,6 +12,7 @@ class EditUserController
     public function __invoke($id)
     {
         $element = User::findOrFail($id);
-        return view('admin.users.editUser', compact("element"));
+        $roles = User::getRoles();
+        return view('admin.users.editUser', compact("element", "roles"));
     }
 }

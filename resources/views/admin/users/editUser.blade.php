@@ -45,6 +45,17 @@
                             @error('email')
                             <p class="text-danger">{{$message}}</p>
                             @enderror
+
+
+                            <div class="form-group selectamImputernicirile">
+                                <label>Select Role</label>
+                                <select class="form-control" name="role">
+                                    @foreach($roles as $id => $r)
+                                        <option value="{{$id}}" {{$element->role == $id ? "selected" : ""}}>{{$r}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <input type="hidden" name="user_id" value="{{$element->id}}">
                             <input type="submit" class="btn btn-primary" value="Edit">
                         </form>
                     </div>

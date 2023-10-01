@@ -51,6 +51,15 @@
                             <p class="text-danger">{{$message}}</p>
                             @enderror
 
+                            <div class="form-group selectamImputernicirile">
+                                <label>Select Role</label>
+                                <select class="form-control" name="role">
+                                    @foreach($roles as $id => $r)
+                                        <option value="{{$id}}" {{old('role') == $id ? "selected" : ""}}>{{$r}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <input type="submit" class="btn btn-primary" value="Add">
 
                         </form>

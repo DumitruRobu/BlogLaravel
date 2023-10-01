@@ -22,8 +22,13 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name"=>"required|string",
-            "email"=>"required|string|email|unique:users",
+            "name" => "required|string",
+            "email" => "required|string|email|unique:users,email,". $this->user_id,
+
+            //v2 tot functional input type hidden din editUser.blade nici nu trebuie:
+         // "email" => "required|email|unique:users,email,".$this->user->id,
+            "role" => "required|integer",
+            "user_id" => "required|integer|exists:users,id"
         ];
     }
 
